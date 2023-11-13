@@ -24,7 +24,7 @@ const HeaderComponent = () => {
       type: "dropdown",
     },
     {
-      id: 1,
+      id: 5,
       name: "My account",
       type: "dropdown",
     },
