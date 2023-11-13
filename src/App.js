@@ -1,7 +1,43 @@
-import { Container, Grid } from "@mui/material";
+import { Container } from "@mui/material";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
 import "./App.css";
 import HeaderComponent from "./components/header/HeaderComponent";
-import SidemenuComponent from "./components/sidemenu/SidemenuComponent";
+import VerifyIdentityComponent from "./pages/verify-identity/VerifyIdentityComponent";
+import KycComponent from "./pages/kyc/KycComponent";
+import ReviewBalanceComponent from "./pages/review-balance/ReviewBalanceComponent";
+import SubmissionComponent from "./pages/submission/SubmissionComponent";
+import RootComponent from "./pages/Root";
+import OwnerAuthenticationComponent from "./pages/owner-authentication/OwnerAuthenticationComponent";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootComponent />,
+    children: [
+      {
+        path: "/owner-authentication",
+        element: <OwnerAuthenticationComponent />,
+      },
+      {
+        path: "/confirm-email",
+        element: <VerifyIdentityComponent />,
+      },
+      {
+        path: "/redo-kyc",
+        element: <KycComponent />,
+      },
+      {
+        path: "/wallet",
+        element: <ReviewBalanceComponent />,
+      },
+      {
+        path: "/kroll-portal",
+        element: <SubmissionComponent />,
+      },
+    ],
+  },
+]);
 
 function App() {
   return (
@@ -10,24 +46,7 @@ function App() {
         <HeaderComponent />
       </div>
       <Container maxWidth="lg">
-        <Grid container sx={{ my: 4 }}>
-          <Grid
-            item
-            xs={4}
-            sx={{ p: 1 }}
-          >
-            <SidemenuComponent />
-          </Grid>
-          <Grid
-            item
-            xs={8}
-            sx={{ p: 1 }}
-          >
-            <div className="container-card">
-              Routes
-            </div>
-          </Grid>
-        </Grid>
+        <RouterProvider router={router} />
       </Container>
     </div>
   );

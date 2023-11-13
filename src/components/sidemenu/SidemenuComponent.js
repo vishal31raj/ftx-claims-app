@@ -1,18 +1,22 @@
-import "./SidemenuComponent.css";
+import { useEffect, useState } from "react";
+
 import CheckIcon from "@mui/icons-material/Check";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import LockIcon from "@mui/icons-material/Lock";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { useState } from "react";
+
+import "./SidemenuComponent.css";
 
 const menuItems = [
   {
     id: 1,
     name: "Initiate Account Owner Authentication",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     isSelected: false,
     isLink: false,
     status: "completed",
+    path: "owner-authentication",
   },
   {
     id: 2,
@@ -22,6 +26,7 @@ const menuItems = [
     isSelected: false,
     isLink: true,
     status: "completed",
+    path: "confirm-email",
   },
   {
     id: 3,
@@ -31,6 +36,7 @@ const menuItems = [
     isSelected: false,
     isLink: true,
     status: "completed",
+    path: "redo-kyc",
   },
   {
     id: 4,
@@ -40,6 +46,7 @@ const menuItems = [
     isSelected: false,
     isLink: true,
     status: "pending",
+    path: "wallet",
   },
   {
     id: 5,
@@ -49,6 +56,7 @@ const menuItems = [
     isSelected: false,
     isLink: true,
     status: "completed",
+    path: "kroll-portal",
   },
   {
     id: 6,
@@ -57,17 +65,18 @@ const menuItems = [
     isSelected: false,
     isLink: false,
     status: "locked",
+    path: "",
   },
 ];
 
-const SidemenuComponent = () => {
+const SidemenuComponent = (props) => {
   const [menuItemsState, setMenuItemsState] = useState(menuItems);
 
   const menuItemClickHandler = (itemId) => {
-    console.log(itemId);
     for (let item of menuItemsState) {
       if (item.id === itemId) {
         item.isSelected = true;
+        props.navigate(item.path);
       } else {
         item.isSelected = false;
       }
@@ -75,11 +84,17 @@ const SidemenuComponent = () => {
     setMenuItemsState([...menuItemsState]);
   };
 
+  useEffect(() => {
+    menuItemClickHandler(1);
+  }, []);
+
   return (
     <div className="container-card">
       {menuItemsState.map((item) => (
         <div
-          className={`menu-item ${item.status === 'locked' && "locked"} ${item.isSelected === true && "selected"}`}
+          className={`menu-item ${item.status === "locked" && "locked"} ${
+            item.isSelected === true && "selected"
+          }`}
           key={item.id}
           onClick={() => menuItemClickHandler(item.id)}
         >
@@ -98,7 +113,11 @@ const SidemenuComponent = () => {
               </div>
             </div>
             <div>
-              <p className="step-count">STEP {item.id}</p>
+              <p
+                className={`step-count ${item.status === "locked" && "locked"}`}
+              >
+                STEP {item.id}
+              </p>
               <p className="item-name">{item.name}</p>
             </div>
             {item.isLink === true && (
