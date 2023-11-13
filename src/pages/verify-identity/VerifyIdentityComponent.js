@@ -1,7 +1,12 @@
-import './VerifyIdentityComponent.css';
+import "./VerifyIdentityComponent.css";
 
 const VerifyIdentityComponent = () => {
-    return <>Verfiy identity</>
-}
+  return (
+    <>
+      <p className="heading">Verify your email - Required at Every Login</p>
+      <p className="sub-heading">Email Confirmation Status: Complete</p>
+    </>
+  );
+};
 
 export default VerifyIdentityComponent;

@@ -13,7 +13,7 @@ const RootComponent = () => {
     <Grid container sx={{ my: 4 }}>
       <Grid item xs={4} sx={{ p: 1 }}>
         <SidemenuComponent
-          navigate={(pathName) => navigationHandler(pathName)}
+          navigateToPath={(pathName) => navigationHandler(pathName)}
         />
       </Grid>
       <Grid item xs={8} sx={{ p: 1 }}>

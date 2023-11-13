@@ -69,14 +69,14 @@ const menuItems = [
   },
 ];
 
-const SidemenuComponent = (props) => {
+const SidemenuComponent = ({ navigateToPath }) => {
   const [menuItemsState, setMenuItemsState] = useState(menuItems);
 
   const menuItemClickHandler = (itemId) => {
     for (let item of menuItemsState) {
       if (item.id === itemId) {
         item.isSelected = true;
-        props.navigate(item.path);
+        navigateToPath(item.path);
       } else {
         item.isSelected = false;
       }

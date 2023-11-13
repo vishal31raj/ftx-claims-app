@@ -1,7 +1,12 @@
-import './OwnerAuthenticationComponent.css';
+import "./OwnerAuthenticationComponent.css";
 
 const OwnerAuthenticationComponent = () => {
-    return <>OwnerAuthenticationComponent</>
-}
+  return (
+    <>
+      <p className="heading">Account Owner Authentication</p>
+      <p className="sub-heading">Status: Complete</p>
+    </>
+  );
+};
 
 export default OwnerAuthenticationComponent;
