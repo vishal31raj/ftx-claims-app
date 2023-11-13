@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container, Grid } from "@mui/material";
+import "./App.css";
+import HeaderComponent from "./components/header/HeaderComponent";
+import SidemenuComponent from "./components/sidemenu/SidemenuComponent";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>
+        <HeaderComponent />
+      </div>
+      <Container maxWidth="lg">
+        <Grid container sx={{ my: 4 }}>
+          <Grid
+            item
+            xs={4}
+            sx={{ p: 1 }}
+          >
+            <SidemenuComponent />
+          </Grid>
+          <Grid
+            item
+            xs={8}
+            sx={{ p: 1 }}
+          >
+            <div className="container-card">
+              Routes
+            </div>
+          </Grid>
+        </Grid>
+      </Container>
     </div>
   );
 }

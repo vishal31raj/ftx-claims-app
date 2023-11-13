@@ -1,0 +1,30 @@
+.container {
+  border-bottom: 1px solid gray;
+  /* height: 80px; */
+  padding: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+}
+
+.nav-items {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  /* border: 1px solid silver; */
+  margin: 0 16px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-item:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
