@@ -1,0 +1,10 @@
+.header-div {
+  display: flex;
+  align-items: center;
+}
+
+.account-dropdown-div {
+  margin-left: auto;
+  width: 50%;
+  /* border: 1px solid silver; */
+}

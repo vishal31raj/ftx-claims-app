@@ -21,7 +21,7 @@ import ReportProblemRoundedIcon from "@mui/icons-material/ReportProblemRounded";
 import CheckIcon from "@mui/icons-material/Check";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
-const KYCStatusExplanations = [
+const ClaimStatusExplanations = [
   {
     id: 1,
     name: "Not Started",
@@ -56,7 +56,7 @@ const SubmissionComponent = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isAccordionOpen, setIsAccordionOpen] = useState(true);
 
-  const beginKycProcessBtnHandler = () => {
+  const beginClaimProcessBtnHandler = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
@@ -110,7 +110,7 @@ const SubmissionComponent = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {KYCStatusExplanations.map((row) => (
+                {ClaimStatusExplanations.map((row) => (
                   <TableRow
                     key={row.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -176,7 +176,7 @@ const SubmissionComponent = () => {
           sx={{ my: 3, py: 1 }}
           variant="contained"
           fullWidth="true"
-          onClick={beginKycProcessBtnHandler}
+          onClick={beginClaimProcessBtnHandler}
         >
           <span>File Proof of Claim</span>
         </Button>
