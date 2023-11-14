@@ -21,7 +21,7 @@ import TablePagination from "@mui/material/TablePagination";
 
 import "./SubComponent.css";
 
-const CustomTablePagination = styled(TablePagination)`
+export const CustomTablePagination = styled(TablePagination)`
   color: silver;
   border-top: 1px solid #4c4c4c;
   border-bottom: 1px solid #4c4c4c;
@@ -39,7 +39,7 @@ const CustomCheckbox = styled(Checkbox)`
   }
 `;
 
-const CustomIconBtn = styled(IconButton)`
+export const CustomIconBtn = styled(IconButton)`
   color: #fff;
   margin: 0 2px;
 
@@ -81,7 +81,18 @@ const BalancesData = [
 ];
 
 const Balance = () => {
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
   const [isSearchSelected, setIsSearchSelected] = useState(false);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
 
   return (
     <div className="sub-component">
@@ -167,10 +178,10 @@ const Balance = () => {
         rowsPerPageOptions={[10, 15, 100]}
         component="div"
         count={BalancesData.length}
-        rowsPerPage="10"
-        page={0}
-        //   onPageChange={handleChangePage}
-        //   onRowsPerPageChange={handleChangeRowsPerPage}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
       />
     </div>
   );

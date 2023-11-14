@@ -12,6 +12,8 @@ import TabPanel from "@mui/lab/TabPanel";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import Balance from "./sub-components/Balances";
+import Deposits from "./sub-components/Deposits";
+import Withdrawal from "./sub-components/Withdrawals";
 
 const AntTabs = styled(Tabs)({
   "& .MuiTabs-indicator": {
@@ -110,8 +112,12 @@ const ReviewBalanceComponent = () => {
           <TabPanel sx={{ px:0 }} value="1">
             <Balance />
           </TabPanel>
-          <TabPanel value="2">Item Two</TabPanel>
-          <TabPanel value="3">Item Three</TabPanel>
+          <TabPanel value="2">
+            <Deposits />
+          </TabPanel>
+          <TabPanel value="3">
+            <Withdrawal />
+          </TabPanel>
         </TabContext>
       </Box>
     </>
