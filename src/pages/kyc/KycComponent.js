@@ -20,50 +20,7 @@ import AutorenewIcon from "@mui/icons-material/Autorenew";
 import ReportProblemRoundedIcon from "@mui/icons-material/ReportProblemRounded";
 import CheckIcon from "@mui/icons-material/Check";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
-
-const KYCStatusExplanations = [
-  {
-    id: 1,
-    name: "Not Started",
-    description: "Please click the link to begin the KYC process.",
-    status: "not-started",
-  },
-  {
-    id: 2,
-    name: "Verified",
-    description:
-      "Your documents have been prepared and completed. If any additional information is required, a memeber of the FTX KYC Support team will reach out.",
-    status: "verified",
-  },
-  {
-    id: 3,
-    name: "Unverified",
-    description:
-      "Your application failed KYC/AML checks and your clain is currently Unverified.",
-    status: "pending",
-  },
-  {
-    id: 4,
-    name: "Processing",
-    description:
-      "Your application is currently under review, please check back shortly.",
-    status: "pending",
-  },
-  {
-    id: 5,
-    name: "On Hold",
-    description:
-      "Your documents have been processed and are currently on hold. If any additional information is required, a memeber of the FTX KYC Support team will reach out.",
-    status: "pending",
-  },
-  {
-    id: 6,
-    name: "Documents Requested",
-    description:
-      "Please click the link to return to the KYC platform to upload additional requested documentation.",
-    status: "error",
-  },
-];
+import { kycData } from "../../data/Data";
 
 const KycComponent = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -123,7 +80,7 @@ const KycComponent = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {KYCStatusExplanations.map((row) => (
+                {kycData.map((row) => (
                   <TableRow
                     key={row.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}

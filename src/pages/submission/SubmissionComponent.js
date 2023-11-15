@@ -20,37 +20,7 @@ import AutorenewIcon from "@mui/icons-material/Autorenew";
 import ReportProblemRoundedIcon from "@mui/icons-material/ReportProblemRounded";
 import CheckIcon from "@mui/icons-material/Check";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
-
-const ClaimStatusExplanations = [
-  {
-    id: 1,
-    name: "Not Started",
-    description: "Please click the link to begin the claims process.",
-    status: "not-started",
-  },
-  {
-    id: 2,
-    name: "Claims(s) Submitted",
-    description:
-      "Customers who have submitted a proof of claim via the Kroll portal. Customer who filed proofs of claim without logging in through the FTX portal will not see the status reflected herein.",
-    status: "pending",
-  },
-  {
-    id: 3,
-    name: "Agreed Scheduled Claim(s)",
-    description:
-      "Customers who have agreed with the amounts or quantities set forth on the Debtor's Schedules as amended on June 27, 2023 via the Kroll portal and the schedule is not noted as contingent, disputed, and/or unliquidated.",
-    status: "verified",
-  },
-
-  {
-    id: 4,
-    name: "Needs Attention",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    status: "error",
-  },
-];
+import { claimsStatusData } from "../../data/Data";
 
 const SubmissionComponent = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -71,7 +41,9 @@ const SubmissionComponent = () => {
   return (
     <>
       <p className="heading">File Proof of Claims</p>
-      <p className="sub-heading">FTX Trading Ltd. Claim Status: Agreed Scheduled Claims (2)</p>
+      <p className="sub-heading">
+        FTX Trading Ltd. Claim Status: Agreed Scheduled Claims (2)
+      </p>
 
       <Accordion
         style={{ boxShadow: "none" }}
@@ -92,9 +64,7 @@ const SubmissionComponent = () => {
           </p>
         </AccordionSummary>
         <AccordionDetails sx={{ p: 0, m: 0 }}>
-          <TableContainer
-            style={{ boxShadow: "none", borderRadius: "0" }}
-          >
+          <TableContainer style={{ boxShadow: "none", borderRadius: "0" }}>
             <Table
               aria-label="simple table"
               style={{ backgroundColor: "#191919" }}
@@ -110,7 +80,7 @@ const SubmissionComponent = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {ClaimStatusExplanations.map((row) => (
+                {claimsStatusData.map((row) => (
                   <TableRow
                     key={row.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}

@@ -3,12 +3,10 @@ import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
-import { Box, IconButton, TextField } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { Box } from "@mui/material";
 
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Tooltip from "@mui/material/Tooltip";
 
 import Table from "@mui/material/Table";
@@ -17,68 +15,10 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import TablePagination from "@mui/material/TablePagination";
 
 import "./SubComponent.css";
-
-export const CustomTablePagination = styled(TablePagination)`
-  color: silver;
-  border-top: 1px solid #4c4c4c;
-  border-bottom: 1px solid #4c4c4c;
-`;
-
-const CustomTextField = styled(TextField)`
-  border-bottom: 1px solid gray;
-`;
-
-const CustomCheckbox = styled(Checkbox)`
-  color: #fff;
-
-  :hover {
-    background-color: #4c4c4c;
-  }
-`;
-
-export const CustomIconBtn = styled(IconButton)`
-  color: #fff;
-  margin: 0 2px;
-
-  :hover {
-    background-color: #4c4c4c;
-    color: #1976d2;
-  }
-
-  :active {
-    color: #1976d2;
-  }
-`;
-
-const BalancesData = [
-  {
-    id: 1,
-    name: "USD Tether (USDT)",
-    allSubaccountsBalance: "0.00",
-    subaccountBalance: "0.00",
-  },
-  {
-    id: 2,
-    name: "Bitcoin (BTC)",
-    allSubaccountsBalance: "0.43647915",
-    subaccountBalance: "0.43647915",
-  },
-  {
-    id: 3,
-    name: "Binance Coin (BNB)",
-    allSubaccountsBalance: "1.08820898",
-    subaccountBalance: "1.08820898",
-  },
-  {
-    id: 4,
-    name: "TRON (TRX)",
-    allSubaccountsBalance: "1",
-    subaccountBalance: "1",
-  },
-];
+import { CustomCheckbox, CustomIconBtn, CustomTablePagination, CustomTextField } from "../../../utils/StyledComponents";
+import { balancesData } from "../../../data/Data";
 
 const Balance = () => {
   const [page, setPage] = useState(0);
@@ -151,7 +91,7 @@ const Balance = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {BalancesData.map((row) => (
+            {balancesData.map((row) => (
               <TableRow
                 key={row.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -177,7 +117,7 @@ const Balance = () => {
         sx={{ mt: 2 }}
         rowsPerPageOptions={[10, 15, 100]}
         component="div"
-        count={BalancesData.length}
+        count={balancesData.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

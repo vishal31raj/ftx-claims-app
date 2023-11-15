@@ -2,20 +2,20 @@ import { useState } from "react";
 
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
-
-import { CustomIconBtn, CustomTablePagination } from "./Balances";
 import { Tooltip } from "@mui/material";
 
 import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
-const WithdrawalData = [];
+import {
+  CustomIconBtn,
+  CustomTablePagination,
+} from "../../../utils/StyledComponents";
 
-const Withdrawal = () => {
+const EmptyTableComponent = ({ headingName, tableHeaders }) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
@@ -32,7 +32,7 @@ const Withdrawal = () => {
     <div className="sub-component">
       <div className="sub-component-header">
         <div>
-          <p className="sub-component-heading">Withdrawals</p>
+          <p className="sub-component-heading">{headingName}</p>
         </div>
         <div className="sub-component-header-icons">
           <Tooltip title="Download CSV">
@@ -51,42 +51,24 @@ const Withdrawal = () => {
         <Table aria-label="simple table" style={{ backgroundColor: "#191919" }}>
           <TableHead>
             <TableRow>
-              <TableCell style={{ color: "gray", fontWeight: 600 }}>
-                Time
-              </TableCell>
-              <TableCell style={{ color: "gray", fontWeight: 600 }}>
-                Coin
-              </TableCell>
-              <TableCell
-                align="right"
-                style={{ color: "gray", fontWeight: 600 }}
-              >
-                Amount
-              </TableCell>
-              <TableCell style={{ color: "gray", fontWeight: 600 }}>
-                Destination
-              </TableCell>
-              <TableCell style={{ color: "gray", fontWeight: 600 }}>
-                Status
-              </TableCell>
+              {tableHeaders.map((columnName) => (
+                <TableCell
+                  key={columnName}
+                  style={{ color: "gray", fontWeight: 600 }}
+                >
+                  {columnName}
+                </TableCell>
+              ))}
             </TableRow>
           </TableHead>
-          <TableBody>
-            <TableRow
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell style={{ color: "white" }}>
-                No matching records found
-              </TableCell>
-            </TableRow>
-          </TableBody>
         </Table>
       </TableContainer>
+      <div className="no-matching-data-msg">No matching records found</div>
       <CustomTablePagination
         sx={{ mt: 2 }}
         rowsPerPageOptions={[10, 15, 100]}
         component="div"
-        count={WithdrawalData.length}
+        count={0}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}
@@ -96,4 +78,4 @@ const Withdrawal = () => {
   );
 };
 
-export default Withdrawal;
+export default EmptyTableComponent;

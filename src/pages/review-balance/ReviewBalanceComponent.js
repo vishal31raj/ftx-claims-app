@@ -1,50 +1,18 @@
 import { useState } from "react";
-import { styled } from '@mui/material/styles';
 
 import "./ReviewBalanceComponent.css";
 import LockRoundedIcon from "@mui/icons-material/LockRounded";
 
 import Button from "@mui/material/Button";
 import TabContext from "@mui/lab/TabContext";
-import Tabs from "@mui/material/Tabs";
 import TabPanel from "@mui/lab/TabPanel";
 
-import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import Balance from "./sub-components/Balances";
 import Deposits from "./sub-components/Deposits";
-import Withdrawal from "./sub-components/Withdrawals";
-
-const AntTabs = styled(Tabs)({
-  "& .MuiTabs-indicator": {
-    backgroundColor: "#1890ff",
-  },
-});
-
-const AntTab = styled((props) => <Tab disableRipple {...props} />)(
-  ({ theme }) => ({
-    textTransform: "none",
-    minWidth: 0,
-    [theme.breakpoints.up("sm")]: {
-      minWidth: 0,
-    },
-    marginRight: theme.spacing(1),
-    color: "gray",
-    fontWeight: '600',
-    fontSize: '18px',
-    "&:hover": {
-      color: "silver",
-      opacity: 1,
-    },
-    "&.Mui-selected": {
-      color: "#1890ff",
-      fontWeight: '600',
-    },
-    "&.Mui-focusVisible": {
-      backgroundColor: "#d1eaff",
-    },
-  })
-);
+import EmptyTableComponent from "./sub-components/Empty-table";
+import OtherPage from "./sub-components/other-page/OtherPage";
+import { CustomTab, CustomTabs } from "../../utils/StyledComponents";
 
 const ReviewBalanceComponent = () => {
   const [value, setValue] = useState("1");
@@ -89,34 +57,77 @@ const ReviewBalanceComponent = () => {
       <Box sx={{ width: "100%", typography: "body1" }}>
         <TabContext value={value}>
           <Box>
-            <AntTabs
+            <CustomTabs
               value={value}
               onChange={handleChange}
               variant="scrollable"
               scrollButtons="auto"
-              aria-label="scrollable auto tabs example"
             >
-              <AntTab label="Balances" value="1" />
-              <AntTab label="Deposits" value="2" />
-              <AntTab label="Withdrawals" value="3" />
-              <AntTab label="Positions" value="4" />
-              <AntTab label="Fills" value="5" />
-              <AntTab label="P2P Transfers" value="6" />
-              <AntTab label="Airdrops" value="7" />
-              <AntTab label="Withdrawals" value="8" />
-              <AntTab label="Referral Rebates" value="9" />
-              <AntTab label="Balance Adjustments" value="10" />
-              <AntTab label="Other" value="11" />
-            </AntTabs>
+              <CustomTab label="Balances" value="1" />
+              <CustomTab label="Deposits" value="2" />
+              <CustomTab label="Withdrawals" value="3" />
+              <CustomTab label="Positions" value="4" />
+              <CustomTab label="Fills" value="5" />
+              <CustomTab label="P2P Transfers" value="6" />
+              <CustomTab label="Airdrops" value="7" />
+              <CustomTab label="Referral Rebates" value="9" />
+              <CustomTab label="Balance Adjustments" value="10" />
+              <CustomTab label="Other" value="11" />
+            </CustomTabs>
           </Box>
-          <TabPanel sx={{ px:0 }} value="1">
+          <TabPanel value="1">
             <Balance />
           </TabPanel>
           <TabPanel value="2">
             <Deposits />
           </TabPanel>
           <TabPanel value="3">
-            <Withdrawal />
+            <EmptyTableComponent
+              headingName="Withdrawals"
+              tableHeaders={["Time", "Coin", "Amount", "Destination", "Status"]}
+            />
+          </TabPanel>
+          <TabPanel value="4"></TabPanel>
+          <TabPanel value="5">
+            <EmptyTableComponent
+              headingName="Fills"
+              tableHeaders={[
+                "Time",
+                "Market",
+                "Side",
+                "Order Type",
+                "Size",
+                "Price",
+                "Total",
+              ]}
+            />
+          </TabPanel>
+          <TabPanel value="6">
+            <EmptyTableComponent
+              headingName="P2P Transfers"
+              tableHeaders={["Time", "Name", "Amount", "Message", "Status"]}
+            />
+          </TabPanel>
+          <TabPanel value="7">
+            <EmptyTableComponent
+              headingName="Airdrops"
+              tableHeaders={["Time", "Coin", "Size", "Notes", "Status"]}
+            />
+          </TabPanel>
+          <TabPanel value="9">
+            <EmptyTableComponent
+              headingName="Referral Rebates"
+              tableHeaders={["Time", "Amount"]}
+            />
+          </TabPanel>
+          <TabPanel value="10">
+            <EmptyTableComponent
+              headingName="Balance Adjustments"
+              tableHeaders={["Time", "Currency", "Size", "Description"]}
+            />
+          </TabPanel>
+          <TabPanel value="11">
+            <OtherPage />
           </TabPanel>
         </TabContext>
       </Box>
