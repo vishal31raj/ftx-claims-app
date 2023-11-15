@@ -1,3 +1,93 @@
+export const topNavigationItems = [
+  {
+    id: 1,
+    name: "Privacy",
+    type: "link",
+  },
+  {
+    id: 2,
+    name: "FAQ",
+    type: "link",
+  },
+  {
+    id: 3,
+    name: "Support",
+    type: "link",
+  },
+  {
+    id: 4,
+    name: "English",
+    type: "dropdown",
+  },
+  {
+    id: 5,
+    name: "My account",
+    type: "dropdown",
+  },
+];
+
+export const sidebarMenuItems = [
+  {
+    id: 1,
+    name: "Initiate Account Owner Authentication",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    isSelected: false,
+    isLink: false,
+    status: "completed",
+    path: "owner-authentication",
+  },
+  {
+    id: 2,
+    name: "Verify Identity of the Original FTX Account Owner",
+    description:
+      "To ensure the accuracy of your email address on record, please initiate the verfication process by requesting a confirmation email. Upon receipt, kindly click on the enclosed link to complete the verification.",
+    isSelected: false,
+    isLink: true,
+    status: "completed",
+    path: "confirm-email",
+  },
+  {
+    id: 3,
+    name: "KYC",
+    description:
+      "Complete the Know Your Customer (KYC) process to verify the identity of the original FTX account owner. This step ensures that the account is compliant with regulations and helps to verify your identity.",
+    isSelected: false,
+    isLink: true,
+    status: "completed",
+    path: "redo-kyc",
+  },
+  {
+    id: 4,
+    name: "Review Account Balance",
+    description:
+      "View your FTX account -- you can view your balances as of the petition Date (unless otherwise needed), and historical activity.",
+    isSelected: false,
+    isLink: true,
+    status: "pending",
+    path: "wallet",
+  },
+  {
+    id: 5,
+    name: "Submission of Electronic Proof of Claim",
+    description:
+      "You will be directed to the Kroll Restructuting Administration platform to confirm your balances as of the Petition Date, and, if necessary, submit an electronic proof of claim.",
+    isSelected: false,
+    isLink: true,
+    status: "completed",
+    path: "kroll-portal",
+  },
+  {
+    id: 6,
+    name: "Standby for Next Steps",
+    description: "",
+    isSelected: false,
+    isLink: false,
+    status: "locked",
+    path: "",
+  },
+];
+
 export const kycData = [
   {
     id: 1,

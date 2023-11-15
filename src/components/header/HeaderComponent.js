@@ -1,34 +1,18 @@
+import { topNavigationItems } from "../../data/Data";
 import "./HeaderComponent.css";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 const HeaderComponent = () => {
-  const navItems = [
-    {
-      id: 1,
-      name: "Privacy",
-      type: "link",
-    },
-    {
-      id: 2,
-      name: "FAQ",
-      type: "link",
-    },
-    {
-      id: 3,
-      name: "Support",
-      type: "link",
-    },
-    {
-      id: 4,
-      name: "English",
-      type: "dropdown",
-    },
-    {
-      id: 5,
-      name: "My account",
-      type: "dropdown",
-    },
-  ];
+  // const [anchorEl, setAnchorEl] = useState(null);
+  // const open = Boolean(anchorEl);
+
+  // const handleClick = (event) => {
+  //   setAnchorEl(event.currentTarget);
+  // };
+  
+  // const handleClose = () => {
+  //   setAnchorEl(null);
+  // };
 
   return (
     <div className="container">
@@ -41,7 +25,7 @@ const HeaderComponent = () => {
         />
       </div>
       <div className="nav-items">
-        {navItems.map((item) => (
+        {topNavigationItems.map((item) => (
           <div className="nav-item" key={item.id}>
             {item.name} {item.type === "dropdown" && <ArrowDropDownIcon />}
           </div>

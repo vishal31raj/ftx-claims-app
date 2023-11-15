@@ -3,7 +3,11 @@ import { useState } from "react";
 import "./ReviewBalanceComponent.css";
 import LockRoundedIcon from "@mui/icons-material/LockRounded";
 
-import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
+import InputAdornment from "@mui/material/InputAdornment";
+import FormControl from "@mui/material/FormControl";
+import SearchIcon from "@mui/icons-material/Search";
+
 import TabContext from "@mui/lab/TabContext";
 import TabPanel from "@mui/lab/TabPanel";
 
@@ -12,10 +16,28 @@ import Balance from "./sub-components/Balances";
 import Deposits from "./sub-components/Deposits";
 import EmptyTableComponent from "./sub-components/Empty-table";
 import OtherPage from "./sub-components/other-page/OtherPage";
-import { CustomTab, CustomTabs } from "../../utils/StyledComponents";
+import {
+  CustomDropdownButton,
+  CustomMenu,
+  CustomSecondaryButton,
+  CustomTab,
+  CustomTabs,
+} from "../../utils/StyledComponents";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { OutlinedInput } from "@mui/material";
 
 const ReviewBalanceComponent = () => {
   const [value, setValue] = useState("1");
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -30,24 +52,54 @@ const ReviewBalanceComponent = () => {
           </p>
         </div>
         <div className="account-dropdown-div">
-          <Button
+          <CustomDropdownButton
             sx={{ py: 1 }}
             variant="contained"
             fullWidth="true"
-            color="secondary"
+            onClick={handleClick}
           >
-            Main Account
-          </Button>
+            <p style={{ margin: 0 }}>Main Account</p>
+            <ArrowDropDownIcon />
+          </CustomDropdownButton>
+          <CustomMenu
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            PaperProps={{
+              style: {
+                backgroundColor: "#4c4c4c",
+                color: "#fff",
+                width: 300,
+              },
+            }}
+          >
+            <MenuItem>
+              <FormControl fullWidth variant="outlined">
+                <OutlinedInput
+                  placeholder="Search"
+                  sx={{ px: 1 }}
+                  style={{ color: "white" }}
+                  startAdornment={
+                    <InputAdornment position="start">
+                      <SearchIcon />
+                    </InputAdornment>
+                  }
+                />
+              </FormControl>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>Main Account</MenuItem>
+          </CustomMenu>
         </div>
       </div>
-      <Button
+      <CustomSecondaryButton
         sx={{ py: 1, mt: 6 }}
         variant="contained"
         fullWidth="true"
         color="secondary"
       >
         Download All Core Transactions
-      </Button>
+      </CustomSecondaryButton>
+
       <p>
         Transactions will be downloaded for the user's main account or the
         currently selected subaccount. May not include additional balance
