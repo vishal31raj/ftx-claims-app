@@ -1,13 +1,8 @@
-.menu-item {
-    /* border: 1px solid silver; */
-}
-
 .menu-item.selected {
     background-color: #323232;
 }
 
 .menu-item-link {
-    /* border: 1px solid silver; */
     padding: 24px;
     display: flex;
     align-items: center;
@@ -70,7 +65,6 @@
 }
 
 .description-div {
-    /* border: 1px solid silver; */
     padding: 0 24px 24px 24px;
     color: gray;
 }

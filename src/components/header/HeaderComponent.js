@@ -5,7 +5,7 @@ import "./HeaderComponent.css";
 
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import TranslateIcon from "@mui/icons-material/Translate";
-import { Divider, Menu, MenuItem } from "@mui/material";
+import { Menu, MenuItem } from "@mui/material";
 
 const HeaderComponent = () => {
   const [translationAnchorEl, setTranslationAnchorEl] = useState(null);
@@ -61,7 +61,6 @@ const HeaderComponent = () => {
                   style: {
                     backgroundColor: "#4c4c4c",
                     color: "#fff",
-                    // width: 300,
                   },
                 }}
               >

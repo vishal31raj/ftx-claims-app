@@ -58,11 +58,6 @@ const FTXAppEarn = () => {
                   <CloudDownloadIcon />
                 </CustomIconBtn>
               </Tooltip>
-              {/* <Tooltip title="Date Range">
-                <CustomIconBtn>
-                  <DateRangeIcon />
-                </CustomIconBtn>
-              </Tooltip> */}
             </div>
           </div>
           <TableContainer style={{ boxShadow: "none", borderRadius: "0" }}>
