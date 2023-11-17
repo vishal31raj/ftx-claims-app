@@ -3,7 +3,6 @@ import { styled } from "@mui/material/styles";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
 import TablePagination from "@mui/material/TablePagination";
 import { IconButton, TextField } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
@@ -52,12 +51,6 @@ export const CustomDropdownButton = styled(Button)`
     background-color: #4c4c4c;
     text-transform: capitalize;
     justify-content: space-between;
-  }
-`;
-
-export const CustomMenu = styled(Menu)`
-  &.MuiList-root.MuiMenu-list {
-    background-color: red;
   }
 `;
 

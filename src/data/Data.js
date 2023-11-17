@@ -18,11 +18,48 @@ export const topNavigationItems = [
     id: 4,
     name: "English",
     type: "dropdown",
+    options: [
+      { code: "cv", name: "Chuvash" },
+      { code: "cy", name: "Welsh" },
+      { code: "da", name: "Danish" },
+      { code: "de", name: "German" },
+      { code: "dv", name: "Divehi; Dhivehi; Maldivian" },
+      { code: "dz", name: "Dzongkha" },
+      { code: "ee", name: "Ewe" },
+      { code: "el", name: "Greek, Modern (1453-)" },
+      { code: "en", name: "English" },
+      { code: "eo", name: "Esperanto" },
+      { code: "es", name: "Spanish; Castilian" },
+      { code: "et", name: "Estonian" },
+      { code: "eu", name: "Basque" },
+      { code: "fa", name: "Persian" },
+      { code: "ff", name: "Fulah" },
+      { code: "fi", name: "Finnish" },
+      { code: "fj", name: "Fijian" },
+      { code: "fo", name: "Faroese" },
+      { code: "fr", name: "French" },
+      { code: "fy", name: "Western Frisian" },
+      { code: "ga", name: "Irish" },
+    ],
   },
   {
     id: 5,
     name: "My account",
     type: "dropdown",
+    info: [
+      {
+        key: 'Account ID',
+        value: '115408177'
+      },
+      {
+        key: 'Email',
+        value: 'discoverweb2021@gmail.com'
+      },
+      {
+        key: 'Platform',
+        value: 'FTX.COM'
+      },
+    ]
   },
 ];
 

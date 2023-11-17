@@ -7,9 +7,9 @@ import MenuItem from "@mui/material/MenuItem";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import SearchIcon from "@mui/icons-material/Search";
-
 import TabContext from "@mui/lab/TabContext";
 import TabPanel from "@mui/lab/TabPanel";
+import Menu from "@mui/material/Menu";
 
 import Box from "@mui/material/Box";
 import Balance from "./sub-components/Balances";
@@ -18,7 +18,6 @@ import EmptyTableComponent from "./sub-components/Empty-table";
 import OtherPage from "./sub-components/other-page/OtherPage";
 import {
   CustomDropdownButton,
-  CustomMenu,
   CustomSecondaryButton,
   CustomTab,
   CustomTabs,
@@ -61,7 +60,7 @@ const ReviewBalanceComponent = () => {
             <p style={{ margin: 0 }}>Main Account</p>
             <ArrowDropDownIcon />
           </CustomDropdownButton>
-          <CustomMenu
+          <Menu
             anchorEl={anchorEl}
             open={open}
             onClose={handleClose}
@@ -88,7 +87,7 @@ const ReviewBalanceComponent = () => {
               </FormControl>
             </MenuItem>
             <MenuItem onClick={handleClose}>Main Account</MenuItem>
-          </CustomMenu>
+          </Menu>
         </div>
       </div>
       <CustomSecondaryButton

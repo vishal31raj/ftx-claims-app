@@ -29,3 +29,11 @@
   cursor: pointer;
   text-decoration: underline;
 }
+
+.my-account-info-key {
+  font-weight: 600;
+}
+
+.my-account-info-value {
+  color: silver;
+}
